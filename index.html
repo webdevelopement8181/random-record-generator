@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <div class="grid-container">
-        <div class="item-one">one</div>
-        <div class="item-two">
-            <div class="item-two-header">header</div>
-            <div class="two-main-content">
-                <div class="content-item item1">Item 1</div>
-                <div class="content-item item2"></div>
-                <div class="content-item item3">Item 3</div>
-             
-            </div>
-            <div class="item-two-footer">footer</div>
+      <div class="side-bar">
+        <div class="page-title">
+            <div class="title-content">random record generator</div>
         </div>
-    
+       <div class="generate-btn-part">
+        <button class="generate-btn">Generate</button>
+       </div>
+        <div class="history-panel-part">
+            <div class="history-panel">history pannel</div>
+    </div>
+        <div class="live-time">time</div>
+      </div>
+      <div class="main-part">
+        <div class="header-part">Description: Generated [n] records at [time]</div>
+        <div class="main-content">
+          <div class="content-item item1">content</div>
+          <div class="content-item item2">Constraints Form:</div>
+          <div class="content-item item3">display mode</div>
+        </div>
+        <div class="footer-part">Pagination panel</div>
+      </div>
     </div>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
