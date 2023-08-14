@@ -5,31 +5,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+
     <div class="grid-container">
       <div class="side-bar">
         <div class="page-title">
             <div class="title-content">random record generator</div>
         </div>
        <div class="generate-btn-part">
-        <button class="generate-btn">Generate</button>
+        <button class="generate-btn" onclick="generateBtn">Generate</button>
        </div>
         <div class="history-panel-part">
             <div class="history-panel">history pannel</div>
     </div>
-        <div class="live-time">time</div>
+        <div class="timeDateContainer" id="timeDateContainer">
+
+        </div>
       </div>
       <div class="main-part">
         <div class="header-part">Description: Generated [n] records at [time]</div>
         <div class="main-content">
-          <div class="content-item item1">content</div>
-          <div class="content-item item2">Constraints Form:</div>
+        
+          <div class="content-item item1">
+          <main class="table">
+              <section class="table-header">
+                <h1>random reacord</h1>
+              </section>
+              <div id="result"></div>
+            </main>
+          </div>
+          <div class="content-item item2">
+            <div class="properties"> data
+              <div class="name">Name
+
+              </div>
+              <div class="last-name">LastName
+                
+              </div>
+              <div class="age">Age</div>
+              <div class="email">Email</div>
+            </div>
+            <div class="min-char">min
+              <div class="min-first">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('min-first')"></span>
+                  <span class="prevent" onclick="prevNum('min-first')"></span>
+                  <div id="box-min-first"></div>
+                </div>
+              </div>
+              <div class="min-second">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('min-second')"></span>
+                  <span class="prevent" onclick="prevNum('min-second')"></span>
+                  <div id="box-min-second"></div>
+                </div>
+              </div>
+              <div class="min-third">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('min-third')"></span>
+                  <span class="prevent" onclick="prevNum('min-third')"></span>
+                  <div id="box-min-third"></div>
+                </div>
+              </div>
+              <div class="min-fourth">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('min-fourth')"></span>
+                  <span class="prevent" onclick="prevNum('min-fourth')"></span>
+                  <div id="box-min-fourth"></div>
+                </div>
+              </div>
+            </div>
+            <div class="max-char">max
+
+               <div class="max-first">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('max-first')"></span>
+                  <span class="prevent" onclick="prevNum('max-first')"></span>
+                  <div id="box-max-first"></div>
+                </div>
+              </div>
+              <div class="max-second">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('max-second')"></span>
+                  <span class="prevent" onclick="prevNum('max-second')"></span>
+                  <div id="box-max-second"></div>
+                </div>
+              </div>
+              <div class="max-third">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('max-third')"></span>
+                  <span class="prevent" onclick="prevNum('max-third')"></span>
+                  <div id="box-max-third"></div>
+                </div>
+              </div>
+              <div class="max-fourth">
+                <div class="constrain-container">
+                  <span class="next" onclick="nextNum('max-fourth')"></span>
+                  <span class="prevent" onclick="prevNum('max-fourth')"></span>
+                  <div id="box-max-fourth"></div>
+                </div>
+              </div>
+            </div>
+            <div class="include-symbols">include
+              <div class="include-options-name">
+                <label>
+                  <br>
+                  <input type="checkbox" name="include-upper-name" value="upper" id="upperCase" >
+                  Upper Case<br>
+                </label>
+            
+                <label class="option-field-num">
+             
+                  <input type="checkbox" name="include-number-name" id="number" value="number">
+                  Numbers<br>
+                </label>
+            
+                <label class="option-field-symbols">
+                  <input type="checkbox" name="include-symbols-name" id="symbols" value="symbols">
+                  Symbols<br>
+                </label>
+              </div>
+        
+              <div class="include-options-last-name">
+                <label>
+                  <input type="checkbox" name="include-upper-last-name" value="upper" id="upperCase" >
+                  Upper Case<br>
+                </label>
+            
+                <label class="option-field-num">
+                  <input type="checkbox" name="include-number-last-name" id="number" value="number">
+                  Numbers<br>
+                </label>
+            
+                <label class="option-field-symbols">
+                  <input type="checkbox" name="include-symbols-last-name" id="symbols" value="symbols">
+                  Symbols<br>
+                </label>
+              </div>
+              <div class="include-options-age">
+                <label>
+                  <input type="checkbox" name="include-upper-age" value="upper" id="upperCase" disabled>
+                  Upper Case<br>
+                </label>
+            
+                <label class="option-field-num">
+                  <input type="checkbox" name="include-number-age"  id="number"value="number" disabled>
+                  Numbers<br>
+                </label>
+            
+                <label class="option-field-symbols">
+                  <input type="checkbox" name="include-symbols-age" id="symbols" value="symbols"disabled>
+                  Symbols<br>
+                </label>
+              </div>
+              <div class="include-options-email">
+                <label>
+                  <input type="checkbox" name="include-upper-email" value="upper"  id="upperCase" disabled >
+                  Upper Case<br>
+                </label>
+            
+                <label class="option-field-num">
+                  <input type="checkbox" name="include-number-email" id="number" value="number" disabled>
+                Numbers<br>
+                </label>
+            
+                <label class="option-field-symbols">
+                  <input type="checkbox" name="include-symbols-email" id="symbols" value="symbols" disabled>
+                  Symbols<br>
+                </label>
+              </div>
+              <button class="submit-btn" >submit</button>
+            </div>
+            
+          
+          </div>
           <div class="content-item item3">display mode</div>
         </div>
-        <div class="footer-part">Pagination panel</div>
+        <div class="footer-part">
+          <button class="btn startBtn" id="start" >
+            <i class="fa-solid fa-angles-left"></i>
+          </button>
+          <button class="btn prevBtn" id="prev" >
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <div class="links">
+            <a href="#" class="link ">1</a>
+            <a href="#" class="link">2</a>
+            <a href="#" class="link">3</a>
+            <a href="#" class="link">4</a>
+            <a href="#" class="link">5</a>
+            <a href="#" class="link ">6</a>
+            <a href="#" class="link">7</a>
+            <a href="#" class="link">8</a>
+            <a href="#" class="link">9</a>
+            <a href="#" class="link">10</a>
+          </div>
+          <button class="btn nextBtn" id="next">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button class="btn endBtn" id="end">
+            <i class="fa-solid fa-angles-right"></i>
+          </button>
+          <div class="dropDown">
+            <button onclick="dropDownFunction()" class="dropbtn" id="recordCount">records</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#" class="dropdown-option">5</a>
+              <a href="#" class="dropdown-option">10</a>
+              <a href="#" class="dropdown-option">15</a>
+              <a href="#" class="dropdown-option">20</a>
+              <a href="#" class="dropdown-option">25</a>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
     <script src="js/index.js"></script>
   </body>
 </html>
+
