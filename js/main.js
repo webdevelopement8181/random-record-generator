@@ -34,38 +34,37 @@ document.addEventListener("DOMContentLoaded", function() {
     // let numberEmailMinValue = 0;
     // let numberEmailMaxValue = 100; // Default values, change as needed
     //checkboxes
-    
-    
+    const historyRecords = document.getElementById('historyRecords');
+    const historyTimes = document.getElementById('historyTimes');
+    var randomNumber = "";
+    var generationTime = '';
 
     generateBtn.addEventListener('click', () => {
+      const historyRecordItem = document.createElement('div');
+      historyRecordItem.innerHTML = randomNumber;
+      historyRecords.appendChild(historyRecordItem);
+    
+      const historyTimeItem = document.createElement('div');
+      historyTimeItem.innerHTML = generationTime;
+      historyTimeItem.style.borderBottom = '3px solid black';
+      historyTimeItem.style.marginLeft='5px';
+      historyRecordItem.style.borderBottom='3px solid black';
+   
+      historyTimes.appendChild(historyTimeItem);
       const startTime = new Date(); // Get the start time
     
-      var randomNumber = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+      randomNumber = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
       randomDataGenerator(randomNumber);
     
      //record count part in the header
-      const generationTime = `${startTime.getHours()}:${String(startTime.getMinutes()).padStart(2, '0')}:${String(startTime.getSeconds())}`;
+      generationTime = `${startTime.getHours()}:${String(startTime.getMinutes()).padStart(2, '0')}:${String(startTime.getSeconds())}`;
     
       const recordCountElement = document.getElementById('recordCount');
       const generationTimeElement = document.getElementById('generationTime');
-      const historyRecords = document.getElementById('historyRecords');
-      const historyTimes = document.getElementById('historyTimes');
-    
       recordCountElement.textContent = randomNumber; 
       generationTimeElement.textContent = generationTime; 
       
       // Append to history panel
-      const historyRecordItem = document.createElement('div');
-      historyRecordItem.textContent = randomNumber;
-      historyRecords.appendChild(historyRecordItem);
-    
-      const historyTimeItem = document.createElement('div');
-      historyTimeItem.textContent = generationTime;
-      historyTimeItem.style.borderBottom = '3px solid black';
-     historyTimeItem.style.marginLeft='5px';
-     historyRecordItem.style.borderBottom='3px solid black';
-   
-      historyTimes.appendChild(historyTimeItem);
     });
 
     function randomDataGenerator(randomNumber) {
